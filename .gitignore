@@ -1,1 +1,9 @@
-Dataset
+cv_final_project_group1
+**cache**
+**.jpg
+
+
+
+Deepseek/DeepSeek-VL2/*
+!Deepseek/DeepSeek-VL2/1_captioning_model.py
+!Deepseek/DeepSeek-VL2/diag_**
