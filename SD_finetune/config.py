@@ -32,11 +32,11 @@ class TrainingConfig:
     center_crop: bool = True
 
     # Batching
-    batch_size: int = 4
+    batch_size: int = 8
     grad_accumulation: int = 8  # effective batch size = batch_size * grad_accumulation
 
     # Training length
-    max_train_steps: int = 1800
+    max_train_steps: int = 20000
     num_epochs: int = 10  # loop cap; training stops earlier if max_train_steps reached
 
     # Learning rates
