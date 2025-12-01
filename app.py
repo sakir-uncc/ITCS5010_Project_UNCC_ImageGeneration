@@ -86,7 +86,7 @@ def load_sd15_base():
 def load_sd3_base():
     from diffusers import StableDiffusion3Pipeline, FlowMatchEulerDiscreteScheduler
     pipe = StableDiffusion3Pipeline.from_pretrained(
-        "stabilityai/sd3-medium",
+        "stabilityai/stable-diffusion-3-medium-diffusers",
         torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
     )
     pipe.scheduler = FlowMatchEulerDiscreteScheduler.from_config(pipe.scheduler.config)
@@ -155,10 +155,52 @@ model_name = st.selectbox(
     ["SD1.5 (Finetuned)", "SD3 (Finetuned)", "SD1.5 (Base)", "SD3 (Base)"]
 )
 
+# -------------------------------------------------------------
+# ATTRIBUTE DROPDOWNS
+# -------------------------------------------------------------
+
+ATTRIBUTE_LIST = [
+    "trees",
+    "grass",
+    "path",
+    "road",
+    "water",
+    "building",
+    "brick_building",
+    "open_plaza",
+    "parking_lot",
+    "bench",
+    "lamp_post",
+]
+
 st.write("### Optional Attributes (0–3)")
-attr1 = st.text_input("Attribute 1", "")
-attr2 = st.text_input("Attribute 2", "")
-attr3 = st.text_input("Attribute 3", "")
+
+attr1 = st.selectbox(
+    "Attribute 1",
+    ["None"] + ATTRIBUTE_LIST,
+    index=0
+)
+
+attr2 = st.selectbox(
+    "Attribute 2",
+    ["None"] + ATTRIBUTE_LIST,
+    index=0
+)
+
+attr3 = st.selectbox(
+    "Attribute 3",
+    ["None"] + ATTRIBUTE_LIST,
+    index=0
+)
+
+# Build attribute phrase
+attr_list = []
+
+for a in [attr1, attr2, attr3]:
+    if a not in [None, "None", ""]:
+        attr_list.append(a)
+
+attr_text = ", ".join(attr_list)
 
 if st.button("Generate Image"):
     with st.spinner("Generating..."):
@@ -173,4 +215,4 @@ if st.button("Generate Image"):
             prompt = f"a photo of {token} {noun} at UNC Charlotte"
 
         img = generate_image(model_name, prompt)
-        st.image(img, caption=f"{model_name} — {cls_name}", use_column_width=True)
+        st.image(img, caption=f"{model_name} — {cls_name}", use_container_width=True)
