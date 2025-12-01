@@ -19,7 +19,7 @@ from diffusers.models.attention_processor import LoRAAttnProcessor
 
 from transformers import CLIPTextModel, CLIPTokenizer
 
-from config import get_default_config
+from SD3_finetune.config import get_default_config
 
 
 # ============================================================
@@ -245,7 +245,7 @@ def build_sd3_model(cfg: Optional[Dict[str, Any]] = None) -> SD3ModelBundle:
 
         for p in location_params:
             p.data = p.data.float()
-            
+
     else:
         token_to_id = {}
 

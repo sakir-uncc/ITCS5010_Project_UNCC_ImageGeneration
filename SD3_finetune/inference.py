@@ -9,10 +9,10 @@ import torchvision.transforms.functional as TF
 import pandas as pd
 from PIL import Image
 
-from config import get_default_config
-from model import build_sd3_model, create_optimizers, load_checkpoint
-from model import SD3ModelBundle  # for type hints
-from train import encode_prompt
+from SD3_finetune.config import get_default_config
+from SD3_finetune.model import build_sd3_model, create_optimizers, load_checkpoint
+from SD3_finetune.model import SD3ModelBundle  # for type hints
+from SD3_finetune.train import encode_prompt
 
 
 # ------------------------------------------------------------

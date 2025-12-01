@@ -9,9 +9,9 @@ from torchvision.utils import make_grid, save_image
 import matplotlib.pyplot as plt
 from tqdm.auto import tqdm
 
-from config import CONFIG, get_default_config
-from dataset_loader import build_train_val_dataloaders
-from model import build_sd15_model, create_optimizers, save_checkpoint, load_checkpoint
+from SD_finetune.config import CONFIG, get_default_config
+from SD_finetune.dataset_loader import build_train_val_dataloaders
+from SD_finetune.model import build_sd15_model, create_optimizers, save_checkpoint, load_checkpoint
 from transformers import CLIPProcessor, CLIPModel
 
 

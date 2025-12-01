@@ -12,7 +12,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms as T
 
-from config import get_default_config
+from SD3_finetune.config import get_default_config
 
 
 # ============================================================

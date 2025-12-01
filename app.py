@@ -54,8 +54,9 @@ def load_sd15_finetuned():
     ckpt = DATASET_ROOT / "runs/sd15_uncc_fullfinetune/checkpoints/best.pt"
     bundle = build_sd15_model(cfg)
     optimizer, scheduler = bundle, None  # dummy, the loader ignores scheduler
-    from SD_finetune.model import load_checkpoint
-    _ = load_checkpoint(bundle, None, None, ckpt)
+    from SD_finetune.model import load_checkpoint, create_optimizers
+    optimizer, scheduler = create_optimizers(bundle, cfg)
+    _ = load_checkpoint(bundle, optimizer, scheduler, ckpt)
     bundle.unet.eval()
     bundle.text_encoder.eval()
     return bundle, cfg

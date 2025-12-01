@@ -11,7 +11,7 @@ from diffusers.models.attention_processor import LoRAAttnProcessor
 
 from transformers import CLIPTextModel, CLIPTokenizer
 
-from config import CONFIG
+from SD_finetune.config import CONFIG
 
 
 @dataclass

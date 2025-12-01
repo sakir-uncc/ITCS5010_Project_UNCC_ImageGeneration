@@ -9,9 +9,9 @@ from torch.cuda.amp import GradScaler, autocast
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 
-from config import get_default_config
-from dataset_loader import get_train_val_dataloaders
-from model import (
+from SD3_finetune.config import get_default_config
+from SD3_finetune.dataset_loader import get_train_val_dataloaders
+from SD3_finetune.model import (
     build_sd3_model,
     build_sd15_model,
     create_optimizers,

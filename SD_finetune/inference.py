@@ -8,8 +8,8 @@ from torch.cuda.amp import autocast
 from torchvision.utils import save_image
 import pandas as pd
 
-from config import get_default_config
-from model import build_sd15_model, create_optimizers, load_checkpoint
+from SD_finetune.config import get_default_config
+from SD_finetune.model import build_sd15_model, create_optimizers, load_checkpoint
 
 
 # ------------------------------------------------------------

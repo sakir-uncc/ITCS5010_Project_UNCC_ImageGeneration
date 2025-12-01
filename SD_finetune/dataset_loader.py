@@ -7,7 +7,7 @@ from torch.utils.data import Dataset, DataLoader, random_split
 from PIL import Image
 import torchvision.transforms as T
 
-from config import CONFIG
+from SD_finetune.config import CONFIG
 
 
 class CampusLoraDataset(Dataset):
